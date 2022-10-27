@@ -1,20 +1,39 @@
-import React from 'react';
-import type {Node} from 'react';
+import React, { useState }from 'react';
 import {
-  SafeAreaView,
+  View,
+  ScrollView,
   StyleSheet,
 } from 'react-native';
+import CustomInput from './src/components/CustomInput';
 
 
-const App: () => Node = () => {
+const App = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
-    <SafeAreaView style = {styles.root}>
-    </SafeAreaView>
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <View style={styles.root}>
+
+        <CustomInput
+          placeholder="Username"
+          value={username}
+          setValue={setUsername}
+        />
+        <CustomInput
+          placeholder="Password"
+          value={password}
+          setValue={setPassword}
+          secureTextEntry
+        />
+
+      </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  root: { 
+  root: {
     flex: 1,
   },
 });
