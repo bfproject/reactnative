@@ -1,41 +1,23 @@
-import React, { useState }from 'react';
+import React, { useState } from 'react';
 import {
-  View,
-  ScrollView,
-  StyleSheet,
+    View,
+    StyleSheet,
 } from 'react-native';
-import CustomInput from './src/components/CustomInput';
+import LogInScreen from './src/screens/LogInScreen';
 
 
 const App = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={styles.root}>
-
-        <CustomInput
-          placeholder="Username"
-          value={username}
-          setValue={setUsername}
-        />
-        <CustomInput
-          placeholder="Password"
-          value={password}
-          setValue={setPassword}
-          secureTextEntry
-        />
-
-      </View>
-    </ScrollView>
-  );
+    return (
+        <View style={styles.container}>
+            <LogInScreen />
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
+    root: {
+        flex: 1,
+    },
 });
 
 export default App;
