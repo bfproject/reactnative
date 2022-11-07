@@ -10,7 +10,7 @@ import CustomInput from '../components/CustomInput';
 import CustomButton from '../components/CustomButton';
 import AndroidLogo from '../../assets/images/android_logo.png'
 
-const LogInScreen = ({onButtonTapped}) => {
+const LogInScreen = ({ navigation }) => {
 
     const {height} = useWindowDimensions();
     const [username, setUsername] = useState('');
@@ -18,7 +18,7 @@ const LogInScreen = ({onButtonTapped}) => {
 
     const onLogInPressed = () => {
         print(`Login button tapped ${username}, ${password}`);
-        onButtonTapped();
+        navigation.navigate('CoinList')
     };
 
     return (

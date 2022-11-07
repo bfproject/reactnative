@@ -1,32 +1,21 @@
 import React, { useState } from 'react';
-import {
-    StyleSheet,
-    SafeAreaView,
-} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LogInScreen from './src/screens/LogInScreen';
 import CoinList from './src/components/CoinList.jsx'
 
+const Stack = createNativeStackNavigator();
+
 const App = () => {
-    const [loginTapped, setLoginTapped] = useState(false);
 
     return (
-        <SafeAreaView style={styles.root}>
-            {loginTapped ? (
-                <CoinList />
-            ) : (
-                <LogInScreen style={styles.root} onButtonTapped={() => {
-                    setLoginTapped(true)
-                }} />
-            )}
-        </SafeAreaView>
+        <NavigationContainer>{
+            <Stack.Navigator>
+                <Stack.Screen name="Login" component={LogInScreen} />
+                <Stack.Screen name="CoinList" component={CoinList} options={{ title: 'Coins' }} />
+            </Stack.Navigator>
+        }</NavigationContainer>
     );
 };
-
-const styles = StyleSheet.create({
-    root: {
-        flex: 1,
-        justifyContent: 'center'
-    },
-});
 
 export default App;
