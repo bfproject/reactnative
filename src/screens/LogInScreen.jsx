@@ -18,7 +18,7 @@ const LogInScreen = ({ navigation }) => {
 
     const onLogInPressed = () => {
         print(`Login button tapped ${username}, ${password}`);
-        navigation.navigate('CoinList')
+        navigation.navigate('Home')
     };
 
     return (

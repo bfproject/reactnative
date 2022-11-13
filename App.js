@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LogInScreen from './src/screens/LogInScreen';
-import CoinList from './src/components/CoinList.jsx'
+import AppNavigator from './src/navigations/AppNavigator';
 
-const Stack = createNativeStackNavigator();
+// TODO: Load initial screen base on user login status
+// const {isAuthenticated} = useContext(AuthenticatioContext);
 
 const App = () => {
 
-    return (
-        <NavigationContainer>{
-            <Stack.Navigator>
-                <Stack.Screen name="Login" component={LogInScreen} />
-                <Stack.Screen name="CoinList" component={CoinList} options={{ title: 'Coins' }} />
-            </Stack.Navigator>
-        }</NavigationContainer>
-    );
+  return (
+    <NavigationContainer>{
+      <AppNavigator />
+    }</NavigationContainer>
+  );
 };
 
 export default App;
